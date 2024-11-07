@@ -1,0 +1,42 @@
+.balloon-container {
+    position: relative;
+    text-align: center;
+}
+
+.happy-birthday {
+    font-family: 'Arial', sans-serif;
+    color: #ff69b4;
+    font-size: 2.5em;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.balloon {
+    font-size: 2em;
+    position: absolute;
+    bottom: 0;
+    animation: float 6s ease-in infinite;
+    opacity: 0.8;
+}
+
+.balloon1 { left: 20%; animation-delay: 0s; }
+.balloon2 { left: 50%; animation-delay: 2s; }
+.balloon3 { left: 80%; animation-delay: 4s; }
+
+@keyframes float {
+    0% {
+        bottom: -10%;
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        bottom: 110%;
+        transform: scale(1);
+        opacity: 0;
+    }
+}
