@@ -191,8 +191,8 @@
 									<img src="images/pic01.jpg" alt="" />
 								</div>
 							</section>
-								<section class="panel banner right" id="four">
-								<div class="content color1 span-3-75">
+							<section class="panel banner right" id="four">
+								<div class="content color4 span-3-75">
 									<h2 class="major">Travel partner</h2>
 									<pre><code>Hi sweet. Today, we’re not just counting candles—we’re celebrating every moment that makes you who you are. Let’s dive in and explore this special day, one memory, wish, and dream at a time. Here it is—your e-post birthday card !              
 
@@ -200,6 +200,18 @@
 								</div>
 								<div class="image filtered span-1-75" data-position="25% 25%">
 									<img src="images/pic01.jpg" alt="" />
+								</div>
+							</section>
+							<section class="panel banner right" id="four">
+								<div class="content color1 span-3-75">
+									<h2 class="major">Our Captain</h2>
+									<pre><code>A birthday is like a new map—another journey to conquer. Forget the regrets, set sail on the sea of dreams and aiming for the Grand Line of your heart!
+									Today, your adventure continues!  
+
+									Monkey D. Luffy</code></pre>
+								</div>
+								<div class="image filtered span-1-75" data-position="25% 25%">
+									<img src="images/gallery/part-one/luffy.png" alt="" />
 								</div>
 							</section>
 
@@ -217,8 +229,8 @@
 
 							<section class="panel banner right" id="four">
 								<div class="content color0 span-3-75">
-									<h2 class="major">Susan Boy</h2>
-									 <pre><code>Happy first day of being 30, Arin. My prayer is that all your dreams for 2025 come true, especially the one you want the most – studying at Glasgow University. Amen. I sincerely hope that even though I haven’t become the best version of a partner for you yet, I will always pray for the best and support you in every big decision you make in the future, no matter the outcome. Fii amanillah. Good luck with all your future endeavors, Arin.
+									<h2 class="major">A guy you called Susan</h2>
+									 <pre><code>Happy first day of being 30. My prayer is that all your dreams for 2025 come true, especially the one you want the most–studying at Glasgow University. I sincerely hope that even though I haven’t become the best version of a partner for you yet, I will always pray for the best and support you in every big decision you make in the future, no matter the outcome. Fii amanillah. Good luck with all your future endeavors, Arin.
 
 									Obet</code></pre>
 								</div>
@@ -274,11 +286,11 @@
 											<div class="fields">
 												<div class="field">
 													<label for="demo-message">How Do You Feel Today?</label>
-													<textarea name="demo-message" id="demo-message" placeholder="Describe your current feelings, hopes, and dreams." rows="2"></textarea>
+													<textarea name="demo-message" id="input-1" placeholder="Describe your current feelings, hopes, and dreams." rows="2"></textarea>
 												</div>
 												<div class="field">
 													<label for="demo-message">What Do You Want to Remember About This Time? </label>
-													<textarea name="demo-message" id="demo-message" placeholder="Describe a significant moment you’re experiencing right now" rows="2"></textarea>
+													<textarea name="demo-message" id="input-2" placeholder="Describe a significant moment you’re experiencing right now" rows="2"></textarea>
 												</div>
 											</div>
 										</form>
@@ -290,11 +302,11 @@
 											<div class="fields">
 												<div class="field">
 													<label for="demo-message">What Are Your Current Dreams ? </label>
-													<textarea name="demo-message" id="demo-message" placeholder="Describe 3 top your current dream so clearly, like living dream, career, your healthy, love life and etc. " rows="2"></textarea>
+													<textarea name="demo-message" id="input-3" placeholder="Describe 3 top your current dream so clearly, like living dream, career, your healthy, love life and etc. " rows="2"></textarea>
 												</div>
 												<div class="field">
 													<label for="demo-message"> What Advice Would You Give to Your Future Self ? </label>
-													<textarea name="demo-message" id="demo-message" placeholder="Share words of encouragement or wisdom for your future self 10 years from now" rows="2"></textarea>
+													<textarea name="demo-message" id="input-4" placeholder="Share words of encouragement or wisdom for your future self 10 years from now" rows="2"></textarea>
 												</div>
 											</div>
 										</form>
@@ -306,16 +318,16 @@
 											<div class="fields">
 												<div class="field">
 													<label for="demo-message">What quotes do you live by or a message to you remember ? </label>
-													<textarea name="demo-message" id="demo-message" placeholder="Describe 3 top your current dream so clearly, like living dream, career, your healthy, love life and etc. " rows="2"></textarea>
+													<textarea name="demo-message" id="input-5" placeholder="Describe 3 top your current dream so clearly, like living dream, career, your healthy, love life and etc. " rows="2"></textarea>
 												</div>
 												<div class="field">
 													<label for="demo-message"> Your Final Message </label>
-													<textarea name="demo-message" id="demo-message" placeholder="Share words of encouragement or wisdom for your future self 10 years from now" rows="2"></textarea>
+													<textarea name="demo-message" id="input-6" placeholder="Share words of encouragement or wisdom for your future self 10 years from now" rows="2"></textarea>
 												</div>
 											</div>
 
 											<ul class="actions">
-												<li><input type="submit" value="With Love, Marinda Nur Solihin" class="primary color2" /></li>
+												<li><input type="submit" id ="dream-button" onclick="execButton();return false;" value="With Love, Marinda Nur Solihin" class="primary color2"/></li>
 											</ul>
 										</form>
 									</div>
@@ -368,6 +380,33 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://smtpjs.com/v3/smtp.js"></script>
+			<script>
+				function execButton(){
+					let input1 = document.getElementById('input-1').value;
+					let input2 = document.getElementById('input-2').value;
+					let input3 = document.getElementById('input-3').value;
+					let input4 = document.getElementById('input-4').value;
+					let input5 = document.getElementById('input-5').value;
+					let input6 = document.getElementById('input-6').value;
+					sendEmail();
+				}
+
+				function sendEmail(input1, input2, input3, input4, input5, input6){
+		  			Email.send({
+		                Host: "smtp.gmail.com",
+		                Username: "futuremarinda@gmail.com",
+		                Password: "futuremarinda94",
+		                To: 'fauzanhlmy@gmail.com',
+		                From: "fauzanhlmy@gmail.com",
+		                Subject: "Test Email",
+		                Body: "This is a test email sent using SMTP.js"
+		            })
+		            .then(function (message) {
+		                alert("Mail sent successfully") // Alert message on successful email delivery
+		            });
+				}
+			</script>
 
 	</body>
 </html>
